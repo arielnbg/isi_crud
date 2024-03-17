@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <hr>
+    <table border="5">
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Telefone</td>
+            <td>CPF</td>
+            <td>E-mail</td>
+            <td>Excluir</td>
+            <td>Atualizar</td>
+        </tr>
+        {% for pessoa in pessoas %}
+        <tr>
+            <td>{{ pessoa._id }}</td> 
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.telefone }}</td>
+            <td>{{ pessoa.cpf }}</td>
+            <td>{{ pessoa.email}}</td>
+            <td><a href={{url_for('excluir', id=pessoa.__id)}}>EXCLUIR</a></td>
+            <td><a href="/atualizar/{{ pessoa.id}}">ATUALIZAR</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/index">Voltar</a>
+</body>
+</html>
